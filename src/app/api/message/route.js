@@ -53,7 +53,7 @@ export const DELETE = async (request) => {
   const role = payload.role;
   const body = await request.json();
   const messageId = body.messageId;
-  if (!payload) {
+  if (!payload || role !== "SUPER_ADMIN") {
     return NextResponse.json(
       {
         ok: false,
